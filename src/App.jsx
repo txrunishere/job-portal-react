@@ -1,10 +1,14 @@
 import RouterProvider from "./routes/RouterProvider";
 
 const App = () => {
+  const addJob = (job) => {
+    console.log(job);
+  };
+
   return (
     <div>
       <>
-        <RouterProvider />
+        <RouterProvider addJob={addJob} />
       </>
     </div>
   );
