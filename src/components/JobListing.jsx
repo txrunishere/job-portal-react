@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaMapMarker } from "react-icons/fa";
+import { Link } from "react-router";
 
 const JobListing = ({ job }) => {
   const [showMore, setShowMore] = useState(false);
@@ -11,8 +12,8 @@ const JobListing = ({ job }) => {
   }
 
   const handleReadMore = () => {
-    setShowMore(x => !x)
-  }
+    setShowMore((x) => !x);
+  };
 
   return (
     <div className="bg-white rounded-xl shadow-md relative">
@@ -40,12 +41,12 @@ const JobListing = ({ job }) => {
             <FaMapMarker />
             {job.location}
           </div>
-          <a
-            href="#"
+          <Link
+            to={`/jobs/${job.id}`}
             className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Read More
-          </a>
+          </Link>
         </div>
       </div>
     </div>
