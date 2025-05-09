@@ -12,12 +12,12 @@ const JobListings = ({ isHome = false }) => {
       try {
         setIsLoading(true);
         const apiUrl = isHome ? 'api/jobs?_limit=3' : "api/jobs"
-        const fetchData = await axios({
+        const data = await axios({
           method: "get",
           url: apiUrl,
           responseType: "json",
         });
-        setJobs(fetchData.data);
+        setJobs(data.data);
       } catch (error) {
         console.log("Error Fetching Data", error);
       } finally {
@@ -45,6 +45,7 @@ const JobListings = ({ isHome = false }) => {
                 <JobListing
                   key={id}
                   job={{
+                    id,
                     location,
                     salary,
                     title,
