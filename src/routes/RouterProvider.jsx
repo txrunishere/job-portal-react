@@ -6,13 +6,16 @@ import NotFound from "../pages/NotFound";
 import JobPage from "../pages/JobPage";
 import AddJobPage from "../pages/AddJobPage";
 
-const RouterProvider = ({ addJob }) => {
+const RouterProvider = ({ addJob, deleteJob }) => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="jobs" element={<JobsPage />} />
-        <Route path="/jobs/:jobId" element={<JobPage />} />
+        <Route
+          path="/jobs/:jobId"
+          element={<JobPage deleteJob={deleteJob} />}
+        />
         <Route path="/add-job" element={<AddJobPage addJob={addJob} />} />
         <Route path="*" element={<NotFound />} />
       </Route>
